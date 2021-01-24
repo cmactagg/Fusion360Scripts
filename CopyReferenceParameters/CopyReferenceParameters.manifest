@@ -1,0 +1,10 @@
+{
+	"autodeskProduct":	"Fusion360",
+	"type":	"script",
+	"author":	"cmactagg",
+	"description":	{
+		"":	"Copies the parameter reference and applies them to another component"
+	},
+	"supportedOS":	"windows|mac",
+	"editEnabled":	true
+}
