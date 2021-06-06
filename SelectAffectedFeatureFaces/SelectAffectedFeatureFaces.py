@@ -13,10 +13,12 @@ def run(context):
         design = adsk.fusion.Design.cast(product)
 
         #ensure that there is only one selected entity 
-        if ui.activeSelections.count == 1:
+        if ui.activeSelections.count >= 1:
             selectedEntity = ui.activeSelections[0].entity
-            
+        # for selection in ui.activeSelections:
+            # selectedEntity = selection.entity
             #ensure that the selected entity is a Feature (all features have a 'faces' property that is iteratable)
+            ui.messageBox(selectedEntity.objectType)
             if isinstance(selectedEntity, adsk.fusion.Feature):
                 #clear the current selected entity
                 ui.activeSelections.clear()
@@ -26,7 +28,7 @@ def run(context):
             else:
                 ui.messageBox('Selected entity is not a feature')
         else:
-            ui.messageBox('Select one feature')
+            ui.messageBox('Select one feature' + ui.activeSelections.count)
 
     except:
         if ui:
